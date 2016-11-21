@@ -1,0 +1,9 @@
+Autofac.Owin
+Autofac.WebApi2
+Microsoft.AspNet.WebApi.Client
+Microsoft.AspNet.WebApi.Owin
+Swashbuckle.Core
+Serilog.Sinks.Seq
+
+Microsoft.Owin.Host.SystemWeb
+Swashbuckle.Core

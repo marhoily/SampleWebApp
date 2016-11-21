@@ -1,0 +1,34 @@
+* text=auto
+
+# code files
+*.cs     diff=csharp
+*.tt  text eol=crlf
+
+# paket
+*.dependencies text eol=crlf
+*.lock text eol=crlf
+*.references text eol=crlf
+
+# fake
+*.fsx  text eol=crlf
+
+# resharper
+*.dotsettings text eol=crlf
+
+# nchrunch
+*.ncrunch* text eol=crlf
+
+# visual studio files
+*.sln text eol=crlf
+*.csproj text eol=crlf
+*.props text eol=crlf
+*.config  text eol=crlf
+
+# Documents
+*.md text
+
+# Graphics
+*.png binary
+*.jpg binary
+*.gif binary
+*.ico binary

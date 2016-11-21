@@ -1,0 +1,9 @@
+{
+  "commands": {
+    "test": {
+      "fileName": "cmd.exe",
+      "workingDirectory": ".",
+      "arguments": "/c build.bat Test"
+    }
+  }
+}
