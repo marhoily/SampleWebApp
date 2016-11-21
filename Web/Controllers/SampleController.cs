@@ -1,5 +1,8 @@
 ﻿using System.Collections.Generic;
+using System.Threading.Tasks;
 using System.Web.Http;
+using Microsoft.Data.Sqlite;
+using Microsoft.EntityFrameworkCore;
 using Serilog;
 
 namespace Sample.Web.Controllers
@@ -17,10 +20,40 @@ namespace Sample.Web.Controllers
 
         /// <summary>3 </summary>
         [Route("api/Sample")]
-        public IEnumerable<object> Get()
+        public async Task<IEnumerable<object>> Get()
         {
             _log.Information("api/Sample");
-            return new object[] { 1, 2, 3};
+            var inMemorySqlite = new SqliteConnection("Data Source=:memory:");
+            inMemorySqlite.Open();
+            var optionsBuilder = new DbContextOptionsBuilder<MyContext>();
+            optionsBuilder.UseSqlite(inMemorySqlite);
+            using (var ctx = new MyContext(optionsBuilder.Options))
+            {
+                await ctx.Database.EnsureCreatedAsync();
+                ctx.Add(new Blog { Url = "bluh" });
+                await ctx.SaveChangesAsync();
+            }
+            using (var ctx = new MyContext(optionsBuilder.Options))
+            {
+                return await ctx.Blogs.ToListAsync();
+            }
         }
+    }
+
+    internal class Blog
+    {
+        public int Id { get; set; }
+        public string Url { get; set; }
+    }
+
+    internal class MyContext : DbContext
+    {
+        public MyContext(DbContextOptions options) : base(options)
+        {
+        }
+
+      
+
+        public DbSet<Blog> Blogs { get; set; }
     }
 }

@@ -7,6 +7,10 @@ open Fake.DotCover
 
 Restore id
 
+!! @"packages\sqlite\build\**\SQLite.props"
+|> ReplaceInFiles [("(Exists('packages.config') Or Exists('packages.$(MSBuildProjectName).config')) And", "")]
+
+
 let major = "0.1"
 let minor = getBuildParamOrDefault "minor" "0.0"
 let version = major + "." + minor

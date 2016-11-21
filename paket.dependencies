@@ -10,6 +10,8 @@ nuget Microsoft.AspNet.WebApi.Owin // UseWebApi
 nuget Serilog.Sinks.Seq
 nuget Microsoft.Owin.Host.SystemWeb
 nuget Swashbuckle.Core
+nuget Microsoft.EntityFrameworkCore.Sqlite 
+nuget Microsoft.Extensions.Primitives
 
 group Test
 	source https://api.nuget.org/v3/index.json
