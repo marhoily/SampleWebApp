@@ -38,6 +38,10 @@
       Condition=" '$(DownloadPaket)' == 'true' AND '$(DownloadPaketCommand)' != '' AND !Exists('$(PaketExePath)')" />
   </Target>
   <Target Name="RestorePackages" DependsOnTargets="CheckPrerequisites">
-    <Exec Command="$(RestoreCommand)" IgnoreStandardErrorWarningFormat="true" WorkingDirectory="$(PaketRootPath)" Condition="Exists('$(PaketReferences)')" ContinueOnError="true" />
+    <Exec Command="$(RestoreCommand)" 
+          IgnoreStandardErrorWarningFormat="true" 
+          WorkingDirectory="$(PaketRootPath)" 
+          Condition="False" 
+          ContinueOnError="true" />
   </Target>
 </Project>
