@@ -21,6 +21,7 @@ group Test
 	nuget FluentAssertions
 	nuget Microsoft.Owin.Testing
 	nuget Serilog.Sinks.Literate
+	nuget SpecFlow.xUnit
 
 group Build
 	source https://api.nuget.org/v3/index.json

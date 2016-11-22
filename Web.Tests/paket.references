@@ -10,3 +10,4 @@ group Test
 	FluentAssertions
 	Microsoft.Owin.Testing
 	Serilog.Sinks.Literate
+	SpecFlow.xUnit

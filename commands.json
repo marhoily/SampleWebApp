@@ -4,6 +4,11 @@
       "fileName": "cmd.exe",
       "workingDirectory": ".",
       "arguments": "/c build.bat Test"
+    },
+    "build": {
+      "fileName": "cmd.exe",
+      "workingDirectory": ".",
+      "arguments": "/c build.bat"
     }
   }
 }
