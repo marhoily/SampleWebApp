@@ -39,21 +39,4 @@ namespace Sample.Web.Controllers
             }
         }
     }
-
-    internal class Blog
-    {
-        public int Id { get; set; }
-        public string Url { get; set; }
-    }
-
-    internal class MyContext : DbContext
-    {
-        public MyContext(DbContextOptions options) : base(options)
-        {
-        }
-
-      
-
-        public DbSet<Blog> Blogs { get; set; }
-    }
 }

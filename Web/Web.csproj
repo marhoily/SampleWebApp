@@ -70,6 +70,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AutofacWeb.cs" />
+    <Compile Include="Database\Blog.cs" />
+    <Compile Include="Database\MyContext.cs" />
     <Compile Include="Startup.cs" />
     <Compile Include="Controllers\SampleController.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
