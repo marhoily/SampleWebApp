@@ -1,0 +1,6 @@
+/packages/
+/.vs/
+/.paket/paket.targets
+/**/bin/
+/**/obj/
+*.user
