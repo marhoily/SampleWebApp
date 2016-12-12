@@ -1,7 +1,6 @@
-Microsoft.ApplicationInsights.JavaScript
-Microsoft.ApplicationInsights.Web
 Microsoft.AspNet.WebApi
-Microsoft.CodeDom.Providers.DotNetCompilerPlatform
 System.Data.SQLite
 System.Data.SQLite.EF6
 EntityFramework
+Microsoft.CodeDom.Providers.DotNetCompilerPlatform
+Newtonsoft.Json

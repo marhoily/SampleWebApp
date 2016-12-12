@@ -2,10 +2,9 @@ source http://lvse0036.luware.local/nuget
 source https://api.nuget.org/v3/index.json
 framework = net452
 
-nuget Microsoft.ApplicationInsights.JavaScript 1.0.4-build00190 build
-nuget Microsoft.ApplicationInsights.Web 2.2.0-beta2 beta
 nuget Microsoft.AspNet.WebApi
 nuget Microsoft.CodeDom.Providers.DotNetCompilerPlatform
 nuget System.Data.SQLite
 nuget System.Data.SQLite.EF6
 nuget EntityFramework
+nuget Newtonsoft.Json
