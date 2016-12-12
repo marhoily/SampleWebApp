@@ -3,23 +3,8 @@ source https://www.nuget.org/api/v2/
 source https://api.nuget.org/v3/index.json
 framework >= net452
 
-nuget EntityFramework 6.0.0
-nuget Microsoft.ApplicationInsights 2.2.0-beta2 beta
-nuget Microsoft.ApplicationInsights.Agent.Intercept 2.0.1
-nuget Microsoft.ApplicationInsights.DependencyCollector 2.2.0-beta2 beta
 nuget Microsoft.ApplicationInsights.JavaScript 1.0.4-build00190 build
-nuget Microsoft.ApplicationInsights.PerfCounterCollector 2.2.0-beta2 beta
 nuget Microsoft.ApplicationInsights.Web 2.2.0-beta2 beta
-nuget Microsoft.ApplicationInsights.WindowsServer 2.2.0-beta2 beta
-nuget Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel 2.2.0-beta2 beta
 nuget Microsoft.AspNet.WebApi 5.2.3
-nuget Microsoft.AspNet.WebApi.Client 5.2.3
-nuget Microsoft.AspNet.WebApi.Core 5.2.3
-nuget Microsoft.AspNet.WebApi.WebHost 5.2.3
 nuget Microsoft.CodeDom.Providers.DotNetCompilerPlatform 1.0.2
-nuget Microsoft.Net.Compilers 2.0.0-beta5 beta
-nuget Newtonsoft.Json 9.0.2-beta1 beta
 nuget System.Data.SQLite 1.0.103
-nuget System.Data.SQLite.Core 1.0.103
-nuget System.Data.SQLite.EF6 1.0.103
-nuget System.Data.SQLite.Linq 1.0.103
