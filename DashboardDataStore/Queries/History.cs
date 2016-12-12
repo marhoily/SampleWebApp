@@ -1,10 +1,9 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
+using DashboardDataStore.Models;
 
-namespace BuildStatisticsServices.Queries
+namespace DashboardDataStore.Queries
 {
-    using Models;
-
     public class History
     {
         private readonly IEnumerable<BuildStatistics> _builds;

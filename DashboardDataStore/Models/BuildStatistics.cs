@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace BuildStatisticsServices.Models
+namespace DashboardDataStore.Models
 {
     [Serializable]
     public class BuildStatistics

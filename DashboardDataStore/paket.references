@@ -3,3 +3,5 @@ Microsoft.ApplicationInsights.Web
 Microsoft.AspNet.WebApi
 Microsoft.CodeDom.Providers.DotNetCompilerPlatform
 System.Data.SQLite
+System.Data.SQLite.EF6
+EntityFramework

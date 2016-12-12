@@ -1,4 +1,4 @@
-﻿namespace BuildStatisticsServices.Queries
+﻿namespace DashboardDataStore.Queries
 {
     public class BuildMetric<T>
     {

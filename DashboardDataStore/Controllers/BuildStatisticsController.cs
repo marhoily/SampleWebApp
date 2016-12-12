@@ -1,9 +1,9 @@
 ﻿using System.Linq;
 using System.Web.Http;
-using BuildStatisticsServices.Data;
-using BuildStatisticsServices.Models;
+using DashboardDataStore.Data;
+using DashboardDataStore.Models;
 
-namespace BuildStatisticsServices.Controllers
+namespace DashboardDataStore.Controllers
 {
     public class BuildStatisticsController : ApiController
     {

@@ -1,6 +1,6 @@
 ﻿using System.Data.Entity;
 
-namespace BuildStatisticsServices.Data
+namespace DashboardDataStore.Data
 {
     public class Context : DbContext
     {

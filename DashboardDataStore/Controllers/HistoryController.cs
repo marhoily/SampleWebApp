@@ -1,10 +1,9 @@
 ﻿using System.Web.Http;
-using BuildStatisticsServices.Data;
+using DashboardDataStore.Data;
+using DashboardDataStore.Queries;
 
-namespace BuildStatisticsServices.Controllers
+namespace DashboardDataStore.Controllers
 {
-    using Queries;
-
     public class HistoryController : ApiController
     {
         public IHttpActionResult Get()
