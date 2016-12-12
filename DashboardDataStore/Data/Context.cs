@@ -6,7 +6,7 @@ namespace DashboardDataStore.Data
     {
         public Context()
         {
-            this.Database.CreateIfNotExists();
+            Database.CreateIfNotExists();
         }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
