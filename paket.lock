@@ -147,6 +147,10 @@ NUGET
 GROUP Test
 FRAMEWORK: >= NET452
 NUGET
+  remote: https://api.nuget.org/v3/index.json
+    DeepComparison.Json (1.0.22)
+      Newtonsoft.Json
+    Newtonsoft.Json (9.0.1)
   remote: http://api.nuget.org/v3/index.json
     FluentAssertions (4.17)
     Microsoft.Owin (3.0.1)

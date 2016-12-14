@@ -11,3 +11,4 @@ group Test
 	Microsoft.Owin.Testing
 	Serilog.Sinks.Literate
 	SpecFlow.xUnit
+	DeepComparison.Json
