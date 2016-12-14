@@ -2,7 +2,7 @@
 
 namespace Sample.Web.Controllers
 {
-    internal class MyContext : DbContext
+    public class MyContext : DbContext
     {
         public MyContext(DbContextOptions options) : base(options)
         {

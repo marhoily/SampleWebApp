@@ -48,6 +48,10 @@
     </None>
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Logic\Logic.csproj">
+      <Project>{15A42BD6-ACB6-45CC-B993-FAEB2904BB5C}</Project>
+      <Name>Logic</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Web\Web.csproj">
       <Project>{8AA402BB-C9E8-4BC3-80F3-4DF5438817EA}</Project>
       <Name>Web</Name>
