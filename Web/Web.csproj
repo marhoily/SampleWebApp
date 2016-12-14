@@ -70,6 +70,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AutofacWeb.cs" />
+    <Compile Include="Controllers\SampleArg.cs" />
     <Compile Include="Startup.cs" />
     <Compile Include="Controllers\SampleController.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

@@ -1,17 +1,21 @@
-﻿using System.Threading.Tasks;
+﻿using System;
+using System.Net.Http;
+using System.Text;
+using System.Threading.Tasks;
 using Autofac;
 using Microsoft.Data.Sqlite;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Owin.Testing;
+using Newtonsoft.Json;
 using Sample.Web;
 using Sample.Web.Controllers;
 using Serilog;
 
 namespace Web.Tests
 {
-    public sealed class SelfhostedServerPageObject
+    public sealed class SelfhostedServerPageObject : IDisposable
     {
-        private readonly Startup _startup;
+        private readonly TestServer _server;
 
         public SelfhostedServerPageObject()
         {
@@ -22,9 +26,8 @@ namespace Web.Tests
                     .WriteTo.LiterateConsole()
                     .CreateLogger());
             builder.RegisterInstance(GetOptions()).SingleInstance();
-
-        var scope = builder.Build();
-            _startup = new Startup(scope);
+            var startup = new Startup(builder.Build());
+            _server = TestServer.Create(startup.Configuration);
         }
         private static DbContextOptions<MyContext> GetOptions()
         {
@@ -37,14 +40,21 @@ namespace Web.Tests
                 ctx.Database.EnsureCreated();
             return options;
         }
-        public async Task<string> Query(string uri)
+        public async Task<string> Get(string uri)
         {
-            using (var server = TestServer.Create(_startup.Configuration))
-            {
-                var result = await server.HttpClient.GetAsync(uri);
-                result.EnsureSuccessStatusCode();
-                return await result.Content.ReadAsStringAsync();
-            }
+            var result = await _server.HttpClient.GetAsync(uri);
+            result.EnsureSuccessStatusCode();
+            return await result.Content.ReadAsStringAsync();
         }
+
+        public async Task Post<T>(string url, T body)
+        {
+            var result = await _server.HttpClient.PostAsync(url,
+                new StringContent(JsonConvert.SerializeObject(body),
+                    Encoding.UTF8, "application/json"));
+            result.EnsureSuccessStatusCode();
+        }
+
+        public void Dispose() => _server.Dispose();
     }
 }

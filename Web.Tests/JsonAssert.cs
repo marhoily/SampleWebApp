@@ -9,6 +9,11 @@ namespace Web.Tests
     {
         private static readonly JsonComparer Comparer = new JsonComparerBuilder().Build();
 
+        public static Task ShouldBeOk(this Task t)
+        {
+            return t;
+        }
+
         public static async Task ShouldBe(this Task<string> json, object anon)
         {
             var response = await json;
