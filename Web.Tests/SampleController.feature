@@ -4,19 +4,17 @@
 	I want to be able to create nodes
 
 Scenario: Create node
-	Given POST request to api/graph/create-node
-	"""
-	   { 
-	      "Coordinates":"1.23;1.23"
-	   }
-	"""
-	When GET request to api/graph
-	Then the response should be
+	Given I call CreateNode(1.23, 1.23)
+	When I call GetGraph()
+	Then the return value should be
 	"""
 	   { 
 	      "Nodes": [
 	             { 
-	                "Coordinates":"1.23;1.23"
+	                "Coordinates": {
+						"Latitude" : 1.23,
+						"Longitude" : 1.23
+					}
 	             }
 	      ]
 	   }

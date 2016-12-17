@@ -46,9 +46,8 @@
     <Compile Include="SampleControllerSteps.cs">
       <DependentUpon>SampleController.feature</DependentUpon>
     </Compile>
-    <Compile Include="SampleControllerTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="SelfhostedServerPageObject.cs" />
+    <Compile Include="ClientServerPair.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />
@@ -60,6 +59,10 @@
     </None>
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Client\Client.csproj">
+      <Project>{CE5001F4-244C-4BB5-935D-59AEF5D45CAB}</Project>
+      <Name>Client</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Logic\Logic.csproj">
       <Project>{15A42BD6-ACB6-45CC-B993-FAEB2904BB5C}</Project>
       <Name>Logic</Name>

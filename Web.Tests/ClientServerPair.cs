@@ -1,23 +1,21 @@
 ﻿using System;
-using System.Net.Http;
-using System.Text;
-using System.Threading.Tasks;
 using Autofac;
+using Client;
 using Logic.Database;
 using Microsoft.Data.Sqlite;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Owin.Testing;
-using Newtonsoft.Json;
 using Sample.Web;
 using Serilog;
 
 namespace Web.Tests
 {
-    public sealed class SelfhostedServerPageObject : IDisposable
+    public sealed class ClientServerPair : IDisposable
     {
         private readonly TestServer _server;
+        public TypedClient Client { get; }
 
-        public SelfhostedServerPageObject()
+        public ClientServerPair()
         {
             var builder = new ContainerBuilder();
             builder.RegisterModule<AutofacWeb>();
@@ -28,32 +26,20 @@ namespace Web.Tests
             builder.RegisterInstance(GetOptions()).SingleInstance();
             var startup = new Startup(builder.Build());
             _server = TestServer.Create(startup.Configuration);
+            Client = new TypedClient(_server.HttpClient);
         }
-        private static DbContextOptions<MyContext> GetOptions()
+        private static DbContextOptions<GraphContext> GetOptions()
         {
             var inMemorySqlite = new SqliteConnection("Data Source=:memory:");
             inMemorySqlite.Open();
-            var optionsBuilder = new DbContextOptionsBuilder<MyContext>();
+            var optionsBuilder = new DbContextOptionsBuilder<GraphContext>();
             optionsBuilder.UseSqlite(inMemorySqlite);
             var options = optionsBuilder.Options;
-            using (var ctx = new MyContext(options))
+            using (var ctx = new GraphContext(options))
                 ctx.Database.EnsureCreated();
             return options;
         }
-        public async Task<string> Get(string uri)
-        {
-            var result = await _server.HttpClient.GetAsync(uri);
-            result.EnsureSuccessStatusCode();
-            return await result.Content.ReadAsStringAsync();
-        }
 
-        public async Task Post<T>(string url, T body)
-        {
-            var result = await _server.HttpClient.PostAsync(url,
-                new StringContent(JsonConvert.SerializeObject(body),
-                    Encoding.UTF8, "application/json"));
-            result.EnsureSuccessStatusCode();
-        }
 
         public void Dispose() => _server.Dispose();
     }

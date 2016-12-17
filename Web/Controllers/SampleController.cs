@@ -1,4 +1,6 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
 using System.Web.Http;
 using Logic.Database;
@@ -10,11 +12,11 @@ namespace Sample.Web.Controllers
     /// <summary>1 </summary>
     public class SampleController : ApiController
     {
-        private readonly DbContextOptions<MyContext> _options;
+        private readonly DbContextOptions<GraphContext> _options;
         private readonly ILogger _log;
 
         /// <summary>2 </summary>
-        public SampleController(DbContextOptions<MyContext> options, ILogger log)
+        public SampleController(DbContextOptions<GraphContext> options, ILogger log)
         {
             _options = options;
             _log = log;
@@ -22,24 +24,53 @@ namespace Sample.Web.Controllers
         }
 
         /// <summary>13 </summary>
-        [Route("api/Sample/{id}")]
-        public async void Post(int id, [FromBody] SampleArg arg)
+        [Route("api/graph/node")]
+        public async void Post([FromBody] CoordinatesArg arg)
         {
-            _log.Information("post {id}", id);
-            using (var ctx = new MyContext(_options))
+            _log.Information("create node {coordinates}", arg);
+            using (var ctx = new GraphContext(_options))
             {
-                ctx.Add(new Blog { Id = id, Url = arg.Name});
+                ctx.Add(new Node { Latitude = arg.Latitude, Longitude = arg.Longitude });
                 await ctx.SaveChangesAsync();
             }
         }
 
         /// <summary>3 </summary>
-        [Route("api/Sample")]
-        public async Task<IEnumerable<object>> Get()
+        [Route("api/graph")]
+        public async Task<object> Get()
         {
-            _log.Information("api/Sample");
-            using (var ctx = new MyContext(_options))
-                return await ctx.Blogs.ToListAsync();
+            using (var ctx = new GraphContext(_options))
+            {
+                var nodes = await ctx.Nodes.ToListAsync();
+                var graphDto = new
+                {
+                    Nodes = nodes.Select(n => new
+                        {
+                            Coordinates = new
+                            {
+                                n.Latitude,
+                                n.Longitude
+                            }
+                        }
+                    )
+                };
+                return graphDto;
+            }
+        }
+
+
+        private List<NodeDto> Map(List<Node> nodes)
+        {
+            return nodes.Select(Map).ToList();
+        }
+
+        private NodeDto Map(Node arg)
+        {
+            return new NodeDto
+            {
+                Latitude = arg.Latitude,
+                Longitude = arg.Longitude
+            };
         }
     }
 }

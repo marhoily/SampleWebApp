@@ -40,8 +40,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Database\Blog.cs" />
-    <Compile Include="Database\MyContext.cs" />
+    <Compile Include="Database\Node.cs" />
+    <Compile Include="Database\GraphContext.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

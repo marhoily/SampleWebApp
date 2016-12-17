@@ -80,15 +80,15 @@ namespace Web.Tests
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Create node", ((string[])(null)));
 #line 6
 this.ScenarioSetup(scenarioInfo);
-#line hidden
 #line 7
- testRunner.Given("POST request to api/graph/create-node", "   { \r\n      \"Coordinates\":\"1.23;1.23\"\r\n   }", ((TechTalk.SpecFlow.Table)(null)), "Given ");
-#line 13
- testRunner.When("GET request to api/graph", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+ testRunner.Given("I call CreateNode(1.23, 1.23)", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line 8
+ testRunner.When("I call GetGraph()", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
-#line 14
- testRunner.Then("the response should be", "   { \r\n      \"Nodes\": [\r\n             { \r\n                \"Coordinates\":\"1.23;1.2" +
-                    "3\"\r\n             }\r\n      ]\r\n   }", ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line 9
+ testRunner.Then("the return value should be", "   { \r\n      \"Nodes\": [\r\n             { \r\n                \"Coordinates\": {\r\n\t\t\t\t\t" +
+                    "\"Latitude\" : 1.23,\r\n\t\t\t\t\t\"Longitude\" : 1.23\r\n\t\t\t\t}\r\n             }\r\n      ]\r\n   " +
+                    "}", ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();
         }
