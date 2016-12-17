@@ -1,6 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
+﻿using System.Linq;
 using System.Threading.Tasks;
 using System.Web.Http;
 using Logic.Database;
@@ -59,18 +57,5 @@ namespace Sample.Web.Controllers
         }
 
 
-        private List<NodeDto> Map(List<Node> nodes)
-        {
-            return nodes.Select(Map).ToList();
-        }
-
-        private NodeDto Map(Node arg)
-        {
-            return new NodeDto
-            {
-                Latitude = arg.Latitude,
-                Longitude = arg.Longitude
-            };
-        }
     }
 }
