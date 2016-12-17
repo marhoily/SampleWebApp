@@ -38,6 +38,14 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="JsonAssert.cs" />
+    <Compile Include="SampleController.feature.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>SampleController.feature</DependentUpon>
+    </Compile>
+    <Compile Include="SampleControllerSteps.cs">
+      <DependentUpon>SampleController.feature</DependentUpon>
+    </Compile>
     <Compile Include="SampleControllerTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SelfhostedServerPageObject.cs" />
@@ -45,6 +53,10 @@
   <ItemGroup>
     <None Include="app.config" />
     <None Include="paket.references">
+    </None>
+    <None Include="SampleController.feature">
+      <Generator>SpecFlowSingleFileGenerator</Generator>
+      <LastGenOutput>SampleController.feature.cs</LastGenOutput>
     </None>
   </ItemGroup>
   <ItemGroup>
