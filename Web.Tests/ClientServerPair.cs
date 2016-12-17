@@ -1,11 +1,11 @@
 ﻿using System;
 using Autofac;
 using Client;
+using Fibertest.Datacenter.Web;
 using Logic.Database;
 using Microsoft.Data.Sqlite;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Owin.Testing;
-using Sample.Web;
 using Serilog;
 
 namespace Web.Tests

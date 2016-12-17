@@ -4,13 +4,13 @@ using System.Reflection;
 using System.Web.Http;
 using Autofac;
 using Autofac.Integration.WebApi;
-using Sample.Web;
+using Fibertest.Datacenter.Web;
 using Owin;
 using Swashbuckle.Application;
 
 [assembly: Microsoft.Owin.OwinStartup(typeof(Startup))]
 
-namespace Sample.Web
+namespace Fibertest.Datacenter.Web
 {
     internal class Startup
     {

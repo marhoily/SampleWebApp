@@ -1,5 +1,5 @@
 ﻿
-namespace Sample.Web.Controllers
+namespace Fibertest.Datacenter.Web.Controllers
 {
     /// <summary>
     /// Argument

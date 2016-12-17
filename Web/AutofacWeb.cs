@@ -2,7 +2,7 @@
 using Autofac.Integration.WebApi;
 using Serilog;
 
-namespace Sample.Web
+namespace Fibertest.Datacenter.Web
 {
     internal class AutofacWeb : Module
     {

@@ -5,16 +5,16 @@ using Logic.Database;
 using Microsoft.EntityFrameworkCore;
 using Serilog;
 
-namespace Sample.Web.Controllers
+namespace Fibertest.Datacenter.Web.Controllers
 {
     /// <summary>1 </summary>
-    public class SampleController : ApiController
+    public class GraphController : ApiController
     {
         private readonly DbContextOptions<GraphContext> _options;
         private readonly ILogger _log;
 
         /// <summary>2 </summary>
-        public SampleController(DbContextOptions<GraphContext> options, ILogger log)
+        public GraphController(DbContextOptions<GraphContext> options, ILogger log)
         {
             _options = options;
             _log = log;
@@ -40,7 +40,7 @@ namespace Sample.Web.Controllers
             using (var ctx = new GraphContext(_options))
             {
                 var nodes = await ctx.Nodes.ToListAsync();
-                var graphDto = new
+                return new
                 {
                     Nodes = nodes.Select(n => new
                         {
@@ -52,7 +52,6 @@ namespace Sample.Web.Controllers
                         }
                     )
                 };
-                return graphDto;
             }
         }
 
