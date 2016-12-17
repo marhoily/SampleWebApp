@@ -3,7 +3,7 @@ using DeepComparison.Json;
 using FluentAssertions;
 using Newtonsoft.Json.Linq;
 
-namespace Web.Tests
+namespace Tests
 {
     public static class JsonAssert
     {

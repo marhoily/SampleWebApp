@@ -8,7 +8,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Owin.Testing;
 using Serilog;
 
-namespace Web.Tests
+namespace Tests
 {
     public sealed class ClientServerPair : IDisposable
     {

@@ -5,7 +5,7 @@ using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using TechTalk.SpecFlow;
 
-namespace Web.Tests
+namespace Tests
 {
     [Binding]
     public sealed class NodesSteps
