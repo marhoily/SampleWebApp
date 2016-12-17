@@ -1,6 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 
-namespace Sample.Web.Controllers
+namespace Logic.Database
 {
     public class MyContext : DbContext
     {
