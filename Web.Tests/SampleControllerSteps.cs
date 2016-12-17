@@ -12,10 +12,15 @@ namespace Web.Tests
         private readonly SelfhostedServerPageObject _server = new SelfhostedServerPageObject();
         private Task<string> _response;
 
-        [Given("GET request to (.*)")]
+        [Given("POST request to (.*)")]
+        public void HttpPost(string uri, string args)
+        {
+            _response = _server.Get(uri);
+        }
+        [When("GET request to (.*)")]
         public void HttpGet(string uri)
         {
-            _response = _server.Query(uri);
+            _response = _server.Get(uri);
         }
 
         [Then("the response should be")]
