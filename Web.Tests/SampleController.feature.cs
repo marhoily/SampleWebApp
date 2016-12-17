@@ -17,7 +17,7 @@ namespace Web.Tests
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("TechTalk.SpecFlow", "2.1.0.0")]
     [System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    public partial class SimpleRequestsFeature : Xunit.IClassFixture<SimpleRequestsFeature.FixtureData>, System.IDisposable
+    public partial class NodesFeature : Xunit.IClassFixture<NodesFeature.FixtureData>, System.IDisposable
     {
         
         private static TechTalk.SpecFlow.ITestRunner testRunner;
@@ -25,7 +25,7 @@ namespace Web.Tests
 #line 1 "SampleController.feature"
 #line hidden
         
-        public SimpleRequestsFeature()
+        public NodesFeature()
         {
             this.TestInitialize();
         }
@@ -33,8 +33,8 @@ namespace Web.Tests
         public static void FeatureSetup()
         {
             testRunner = TechTalk.SpecFlow.TestRunnerManager.GetTestRunner();
-            TechTalk.SpecFlow.FeatureInfo featureInfo = new TechTalk.SpecFlow.FeatureInfo(new System.Globalization.CultureInfo("en-US"), "Simple requests", "\tIn order to avoid silly mistakes\r\n\tAs a math idiot\r\n\tI want to be told the sum o" +
-                    "f two numbers", ProgrammingLanguage.CSharp, ((string[])(null)));
+            TechTalk.SpecFlow.FeatureInfo featureInfo = new TechTalk.SpecFlow.FeatureInfo(new System.Globalization.CultureInfo("en-US"), "Nodes", "\tIn order to know where geographically placed my equipment\r\n\tAs a root user\r\n\tI w" +
+                    "ant to be able to create nodes", ProgrammingLanguage.CSharp, ((string[])(null)));
             testRunner.OnFeatureStart(featureInfo);
         }
         
@@ -63,7 +63,7 @@ namespace Web.Tests
             testRunner.CollectScenarioErrors();
         }
         
-        public virtual void SetFixture(SimpleRequestsFeature.FixtureData fixtureData)
+        public virtual void SetFixture(NodesFeature.FixtureData fixtureData)
         {
         }
         
@@ -72,21 +72,23 @@ namespace Web.Tests
             this.ScenarioTearDown();
         }
         
-        [Xunit.FactAttribute(DisplayName="Sample request")]
-        [Xunit.TraitAttribute("FeatureTitle", "Simple requests")]
-        [Xunit.TraitAttribute("Description", "Sample request")]
-        [Xunit.TraitAttribute("Category", "mytag")]
-        public virtual void SampleRequest()
+        [Xunit.FactAttribute(DisplayName="Create node")]
+        [Xunit.TraitAttribute("FeatureTitle", "Nodes")]
+        [Xunit.TraitAttribute("Description", "Create node")]
+        public virtual void CreateNode()
         {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Sample request", new string[] {
-                        "mytag"});
-#line 7
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Create node", ((string[])(null)));
+#line 6
 this.ScenarioSetup(scenarioInfo);
-#line 8
- testRunner.Given("GET request to api/Sample", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
-#line 9
- testRunner.Then("the response should be", "[  \r\n   { \r\n      \"Id\":1,\r\n      \"Url\":\"bluh\"\r\n   }\r\n]", ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line 7
+ testRunner.Given("POST request to api/graph/create-node", "   { \r\n      \"Coordinates\":\"1.23;1.23\"\r\n   }", ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line 13
+ testRunner.When("GET request to api/graph", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line hidden
+#line 14
+ testRunner.Then("the response should be", "   { \r\n      \"Nodes\": [\r\n             { \r\n                \"Coordinates\":\"1.23;1.2" +
+                    "3\"\r\n             }\r\n      ]\r\n   }", ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();
         }
@@ -98,12 +100,12 @@ this.ScenarioSetup(scenarioInfo);
             
             public FixtureData()
             {
-                SimpleRequestsFeature.FeatureSetup();
+                NodesFeature.FeatureSetup();
             }
             
             void System.IDisposable.Dispose()
             {
-                SimpleRequestsFeature.FeatureTearDown();
+                NodesFeature.FeatureTearDown();
             }
         }
     }
