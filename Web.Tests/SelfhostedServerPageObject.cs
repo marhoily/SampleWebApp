@@ -9,7 +9,6 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Owin.Testing;
 using Newtonsoft.Json;
 using Sample.Web;
-using Sample.Web.Controllers;
 using Serilog;
 
 namespace Web.Tests

@@ -2,7 +2,6 @@
 using System.Threading.Tasks;
 using System.Web.Http;
 using Logic.Database;
-using Microsoft.Data.Sqlite;
 using Microsoft.EntityFrameworkCore;
 using Serilog;
 
@@ -19,6 +18,7 @@ namespace Sample.Web.Controllers
         {
             _options = options;
             _log = log;
+
         }
 
         /// <summary>13 </summary>
