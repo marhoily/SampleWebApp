@@ -38,24 +38,24 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="JsonAssert.cs" />
-    <Compile Include="SampleController.feature.cs">
+    <Compile Include="Nodes.feature.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>SampleController.feature</DependentUpon>
-    </Compile>
-    <Compile Include="SampleControllerSteps.cs">
-      <DependentUpon>SampleController.feature</DependentUpon>
+      <DependentUpon>Nodes.feature</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ClientServerPair.cs" />
+    <Compile Include="NodesSteps.cs">
+      <DependentUpon>Nodes.feature</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />
     <None Include="paket.references">
     </None>
-    <None Include="SampleController.feature">
+    <None Include="Nodes.feature">
       <Generator>SpecFlowSingleFileGenerator</Generator>
-      <LastGenOutput>SampleController.feature.cs</LastGenOutput>
+      <LastGenOutput>Nodes.feature.cs</LastGenOutput>
     </None>
   </ItemGroup>
   <ItemGroup>

@@ -8,7 +8,7 @@ using TechTalk.SpecFlow;
 namespace Web.Tests
 {
     [Binding]
-    public sealed class SampleControllerSteps
+    public sealed class NodesSteps
     {
         private readonly ClientServerPair _host = new ClientServerPair();
         private Task<Graph> _result;

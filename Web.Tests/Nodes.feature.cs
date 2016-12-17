@@ -22,7 +22,7 @@ namespace Web.Tests
         
         private static TechTalk.SpecFlow.ITestRunner testRunner;
         
-#line 1 "SampleController.feature"
+#line 1 "Nodes.feature"
 #line hidden
         
         public NodesFeature()
