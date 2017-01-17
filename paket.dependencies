@@ -1,11 +1,9 @@
 source https://api.nuget.org/v3/index.json
 framework >= net452
 
-nuget Autofac
 nuget Automapper
 nuget Autofac.Owin
 nuget Autofac.WebApi2
-nuget Microsoft.AspNet.WebApi.Client // Test client
 nuget Microsoft.AspNet.WebApi.Owin // UseWebApi
 nuget Serilog.Sinks.Seq
 nuget Microsoft.Owin.Host.SystemWeb
@@ -17,7 +15,6 @@ group Test
 	source https://api.nuget.org/v3/index.json
 	framework >= net452
 
-	nuget xunit
 	nuget FluentAssertions
 	nuget Microsoft.Owin.Testing
 	nuget Serilog.Sinks.Literate

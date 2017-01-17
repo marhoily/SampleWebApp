@@ -2,12 +2,10 @@ Autofac.Owin
 Autofac.WebApi2
 Microsoft.AspNet.WebApi.Client
 Microsoft.AspNet.WebApi.Owin
-Microsoft.EntityFrameworkCore.Sqlite 
+Microsoft.EntityFrameworkCore.Sqlite
 Microsoft.Extensions.Primitives
-
 group Test
-	xunit
-	FluentAssertions
-	Microsoft.Owin.Testing
-	Serilog.Sinks.Literate
-	SpecFlow.xUnit
+FluentAssertions
+Microsoft.Owin.Testing
+Serilog.Sinks.Literate
+SpecFlow.xUnit
